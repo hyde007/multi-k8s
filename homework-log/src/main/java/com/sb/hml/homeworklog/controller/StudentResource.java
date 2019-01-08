@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sb.hml.homeworklog.exception.StudentNotFoundException;
 import com.sb.hml.homeworklog.jpa.StudentRepository;
+import com.sb.hml.homeworklog.proxy.Quote;
+import com.sb.hml.homeworklog.proxy.QuoteServiceProxy;
 
 @RestController
 @RequestMapping("/hml")
@@ -21,6 +23,9 @@ public class StudentResource {
 	
 	@Autowired
 	private StudentRepository studRepo;
+	
+	@Autowired
+	private QuoteServiceProxy quoteService;
 	
 	@PostMapping("/student/add")
 	public Student createStudent(@RequestBody Student stud) {
@@ -39,5 +44,10 @@ public class StudentResource {
 			throw new StudentNotFoundException("Student Id:"+id+" not found");	
 		}
 		
+	}
+	
+	@GetMapping("/student/getQuote")
+	public Quote getQuote() {
+		return quoteService.getQuote();	
 	}
 }
