@@ -8,9 +8,9 @@ Home Work Application
 5) Setup Zuul API gateway
 
 Applications & Ports:
-| Application | Port  |
-|--:|--:|
-| Home Work Application | 8080 |
-| Ron Swanson Application | 9000 |
-| Eureka | 8761 |
-| API Gateway | 8888 |
+| Application             | Port  |
+|-------------------------|-------|
+| Home Work Application   | 8080  |
+| Ron Swanson Application | 9000  |
+| Eureka                  | 8761  |
+| API Gateway             | 8888  |
