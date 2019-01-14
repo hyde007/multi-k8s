@@ -13,3 +13,7 @@ Home Work Application
 | Ron Swanson Application | 9000  |
 | Eureka                  | 8761  |
 | API Gateway             | 8888  |
+
+Swagger API:
+
+http://localhost:8888/homework-log/swagger-ui.html
