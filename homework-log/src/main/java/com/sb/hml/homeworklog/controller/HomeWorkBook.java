@@ -11,7 +11,6 @@ import org.springframework.hateoas.ResourceSupport;
 import com.fasterxml.jackson.annotation.JsonFilter;
 
 @Entity
-@JsonFilter("HWFilter")
 public class HomeWorkBook {
 	
 	@Id
