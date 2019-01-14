@@ -7,7 +7,6 @@ Home Work Application
 4) Used swagger for API documentation and hateoas to provide links to other APIs in the response
 5) Setup Zuul API gateway
 
-Applications & Ports:
 | Application             | Port  |
 |-------------------------|-------|
 | Home Work Application   | 8080  |
