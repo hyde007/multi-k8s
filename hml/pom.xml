@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sb.hml</groupId>
-	<artifactId>homework-log</artifactId>
+	<artifactId>hml</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>homework-log</name>
+	<name>hml</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

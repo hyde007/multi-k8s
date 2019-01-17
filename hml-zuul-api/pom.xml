@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sb.zuul-gateway</groupId>
-	<artifactId>zuul-api</artifactId>
+	<artifactId>hml-zuul-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zuul-api</name>
+	<name>hml-zuul-api</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
