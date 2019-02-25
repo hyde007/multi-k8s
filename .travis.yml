@@ -1,10 +1,9 @@
-language: java
 sudo: required
 services:
   - docker
 
 before_install:
   - docker build -t hyde009/hml -f ./hml-ronswanson-quotes/Dockerfile.withbuild .
+  - docker run -d -p 127.0.0.1:9000 hyde009/hml mvn test
 
-scripts:
-  - docker run hyde009/hml mvn test -- --coverage
+  
