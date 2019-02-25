@@ -1,10 +1,10 @@
 FROM maven:3.6.0-jdk-8-alpine as build
 WORKDIR /workspace/app
 
-#COPY mvnw .
-#COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+COPY ./hml-ronswanson-quotes/mvnw .
+COPY ./hml-ronswanson-quotes/.mvn .mvn
+COPY ./hml-ronswanson-quotes/pom.xml .
+COPY ./hml-ronswanson-quotes/src src
 
 RUN mvn install -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
