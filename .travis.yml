@@ -4,6 +4,6 @@ services:
 
 before_install:
   - docker build -t hyde009/hml -f ./hml-ronswanson-quotes/Dockerfile.withbuild .
-  - docker run -p 9000:9000 hyde009/hml mvn test
+  
 
   
