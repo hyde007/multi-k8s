@@ -5,6 +5,18 @@ services:
 
 script:
   - docker build -t hyde009/hml -f ./hml-ronswanson-quotes/Dockerfile.withbuild .
-  
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "SB-RON"
+  env: "SbRon-env"
+  bucket_name: "elasticbeanstalk-us-west-2-671213784911"
+  bucket_path: "SB-RON"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
 
   
