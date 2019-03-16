@@ -22,7 +22,7 @@ before_install:
   - cd ..
   
 script:
-  - cd ../hml-ronswanson-quotes
+  - cd hml-ronswanson-quotes
   - mvn test -B
 
 after_success:
