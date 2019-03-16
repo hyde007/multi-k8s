@@ -19,6 +19,7 @@ before_install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - cd ../hml-zuul-api
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - cd ..
   
 script:
   - cd ../hml-ronswanson-quotes
