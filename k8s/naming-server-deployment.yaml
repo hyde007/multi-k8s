@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hmlnaming
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: hmlnaming
+  template:
+    metadata:
+      labels:
+        component: hmlnaming
+    spec:
+      containers:
+        - name: hmlnaming
+          image: hyde009/hml-naming-server
+          ports:
+            - containerPort: 8763

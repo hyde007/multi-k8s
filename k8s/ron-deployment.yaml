@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ron-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: hmlron
+  template:
+    metadata:
+      labels:
+        component: hmlron
+    spec:
+      containers:
+        - name: hmlron
+          image: hyde009/hml-ronswanson-quotes
+          ports:
+            - containerPort: 9000

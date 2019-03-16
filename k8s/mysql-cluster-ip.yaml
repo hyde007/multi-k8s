@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqldata
+spec:
+  type: ClusterIP
+  selector:
+    component: mysqldata
+  ports:
+    - port: 3306
+  clusterIP: None      

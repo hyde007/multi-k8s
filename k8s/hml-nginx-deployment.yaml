@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hml-nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: hmlnginx
+  template:
+    metadata:
+      labels:
+        component: hmlnginx
+    spec:
+      containers:
+        - name: hmlnginx
+          image: hyde009/nginx
+          ports:
+            - containerPort: 80

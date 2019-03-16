@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homework-log
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: homework-log
+  template:
+    metadata:
+      labels:
+        component: homework-log
+    spec:
+      containers:
+        - name: homework-log
+          image: hyde009/hml
+          ports:
+            - containerPort: 9001
