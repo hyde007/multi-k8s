@@ -33,9 +33,10 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 script:
-  - cd ../hml-ronswanson-quotes
+  - cd hml-ronswanson-quotes
   - mvn test -B
-  
+  - cd ..
+
 deploy:
   provider: script
   script: bash ./deploy.sh
