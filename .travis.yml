@@ -13,6 +13,15 @@ cache:
   - $HOME/.m2    
 
 before_install:
+  - cd hml
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - cd ../hml-naming-server
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - cd ../hml-ronswanson-quotes
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - cd ../hml-zuul-api
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - cd ..
   - openssl aes-256-cbc -K $encrypted_c618df825111_key -iv $encrypted_c618df825111_iv -in multi-k8s-234805-7ba6af97c4b5.json.enc -out multi-k8s-234805-7ba6af97c4b5.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
