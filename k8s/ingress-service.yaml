@@ -11,5 +11,5 @@ spec:
         paths:
           - path: /api/
             backend:
-              serviceName: homework-log
-              servicePort: 9001
+              serviceName: api-gateway
+              servicePort: 8888

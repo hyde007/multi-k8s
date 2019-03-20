@@ -1,45 +1,33 @@
-language: java
 sudo: required
 services:
   - docker
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+language: java
 
 cache:
   directories:
   - .autoconf
   - $HOME/.m2    
 
-
-
 before_install:
-  - cd hml
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - cd ../hml-naming-server
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - cd ../hml-ronswanson-quotes
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - cd ../hml-zuul-api
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - cd ..
-  
+  - openssl aes-256-cbc -K $encrypted_c618df825111_key -iv $encrypted_c618df825111_iv -in multi-k8s-234805-7ba6af97c4b5.json.enc -out multi-k8s-234805-7ba6af97c4b5.json -d
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud auth activate-service-account --key-file multi-k8s-234805-7ba6af97c4b5.json
+  - gcloud config set project multi-k8s-234805
+  - gcloud config set compute/zone asia-east1-c
+  - gcloud container clusters get-credentials multi-k8s
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
 script:
-  - cd hml-ronswanson-quotes
-  - mvn test -B
 
-after_success:
-  - cd ..
-  - docker build -t hyde009/hml ./hml
-  - docker build -t hyde009/hml-naming-server ./hml-naming-server
-  - docker build -t hyde009/hml-ronswanson-quotes ./hml-ronswanson-quotes
-  - docker build -t hyde009/hml-zuul-api ./hml-zuul-api
-  - docker build -t hyde009/nginx -f ./nginx/Dockerfile.basic ./nginx
-  - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push hyde009/hml
-  - docker push hyde009/hml-naming-server
-  - docker push hyde009/hml-ronswanson-quotes
-  - docker push hyde009/hml-zuul-api      
-  - docker push hyde009/nginx
-
-
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
   
-
-
